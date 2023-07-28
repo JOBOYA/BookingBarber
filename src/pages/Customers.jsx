@@ -6,8 +6,8 @@ import { Header } from '../components';
 
 const Customers = () => {
   const selectionsettings = { persistSelection: true };
-  const toolbarOptions = ['Add', 'Delete']; // Ajouter 'Add' ici
-  const editing = { allowDeleting: true, allowEditing: true, allowAdding: true }; // Ajouter allowAdding: true ici
+  const toolbarOptions = ['Add', 'Delete'];
+  const editing = { allowDeleting: true, allowEditing: true, allowAdding: true }; 
 
   return (
     <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl">
