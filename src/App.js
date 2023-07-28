@@ -67,14 +67,14 @@ const App = () => {
                 {/* dashboard  */}
 
                 {/* pages  */}
-                <Route path="/orders" element={<Orders />} />
+                
                 <Route path="/employees" element={<Employees />} />
-                <Route path="/customers" element={<Customers />} />
+                <Route path="/clients" element={<Customers />} />
 
                 {/* apps  */}
                 <Route path="/kanban" element={<Kanban />} />
                 <Route path="/editor" element={<Editor />} />
-                <Route path="/calendar" element={<Calendar />} />
+                <Route path="/RDV" element={<Calendar />} />
 
               </Routes>
             </div>
