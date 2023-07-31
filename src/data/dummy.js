@@ -31,24 +31,7 @@ export const gridOrderStatus = (props) => (
   </button>
 );
 
-export const kanbanGrid = [
-  { headerText: 'List',
-    keyField: 'Open',
-    allowToggle: true },
 
-  { headerText: 'En cours',
-    keyField: 'InProgress',
-    allowToggle: true },
-
-  { headerText: 'Testing',
-    keyField: 'Testing',
-    allowToggle: true,
-    isExpanded: false },
-
-  { headerText: 'Fini',
-    keyField: 'Close',
-    allowToggle: true },
-];
 const gridEmployeeProfile = (props) => (
   <div className="flex items-center gap-2">
     <img
@@ -144,10 +127,7 @@ export const links = [
         name: 'RDV',
         icon: <AiOutlineCalendar />,
       },
-      {
-        name: 'kanban',
-        icon: <BsKanban />,
-      },
+      
      
     ],
   },

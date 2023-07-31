@@ -26,7 +26,7 @@ const Employees = () => {
   const actionComplete = (args) => {
     if (args.requestType === 'save' && args.action === 'edit') {
       setIsLoading(true);
-      axios.put(`http://localhost:3000/employee/${args.data.id}`, formatData(args.data))
+      axios.put(`https://formen.onrender.com/employee/${args.data.id}`, formatData(args.data))
         .then((response) => {
           setEmployeesData(prevEmployeesData => prevEmployeesData.map(item => item.id === response.data.id ? response.data : item));
         })
@@ -40,7 +40,7 @@ const Employees = () => {
 
     if (args.requestType === 'delete') {
       setIsLoading(true);
-      axios.delete(`http://localhost:3000/employee/${args.data[0].id}`)
+      axios.delete(`https://formen.onrender.com/employee/${args.data[0].id}`)
         .then((response) => {
           const updatedData = employeesData.filter(item => item.id !== args.data[0].id);
           setEmployeesData(updatedData);
@@ -58,7 +58,7 @@ const Employees = () => {
     if (args.requestType === 'save' && args.action === 'add') {
       args.cancel = true;
       setIsLoading(true);
-      axios.post('http://localhost:3000/employee', formatData(args.data))
+      axios.post('https://formen.onrender.com/employee', formatData(args.data))
         .then((response) => {
           setEmployeesData(prevEmployeesData => [...prevEmployeesData, response.data]);
         })
@@ -73,7 +73,7 @@ const Employees = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get('http://localhost:3000/employee')
+    axios.get('https://formen.onrender.com/employee')
       .then((response) => {
         setEmployeesData(response.data);
       })

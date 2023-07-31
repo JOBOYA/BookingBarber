@@ -24,7 +24,7 @@ const Customers = () => {
   const actionComplete = (args) => {
     if (args.requestType === 'save' && args.action === 'edit') {
       setIsLoading(true);
-      axios.put(`http://localhost:3000/customer/${args.data.id}`, formatData(args.data))
+      axios.put(`https://formen.onrender.com/customer/${args.data.id}`, formatData(args.data))
         .then((response) => {
           setCustomersData(prevCustomersData => prevCustomersData.map(item => item.id === response.data.id ? response.data : item));
         })
@@ -38,7 +38,7 @@ const Customers = () => {
 
     if (args.requestType === 'delete') {
       setIsLoading(true);
-      axios.delete(`http://localhost:3000/customer/${args.data[0].id}`)
+      axios.delete(`https://formen.onrender.com/customer/${args.data[0].id}`)
         .then((response) => {
           const updatedData = customersData.filter(item => item.id !== args.data[0].id);
           setCustomersData(updatedData);
@@ -56,7 +56,7 @@ const Customers = () => {
     if (args.requestType === 'save' && args.action === 'add') {
       args.cancel = true;
       setIsLoading(true);
-      axios.post('http://localhost:3000/customer', formatData(args.data))
+      axios.post('https://formen.onrender.com/customer', formatData(args.data))
         .then((response) => {
           setCustomersData(prevCustomersData => [...prevCustomersData, response.data]);
         })
@@ -71,7 +71,7 @@ const Customers = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get('http://localhost:3000/customer')
+    axios.get('https://formen.onrender.com/customer')
       .then((response) => {
         setCustomersData(response.data);
       })

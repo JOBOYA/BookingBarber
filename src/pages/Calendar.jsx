@@ -18,7 +18,7 @@ const Scheduler = () => {
   const [data, setData] = useState(scheduleData); // Set initial data
 
   useEffect(() => {
-    axios.get('http://localhost:3000/schedule')
+    axios.get('https://formen.onrender.com/schedule')
       .then((response) => {
         // Map server data to the structure expected by the Schedule component
         const serverData = response.data.map(item => ({
@@ -57,7 +57,7 @@ const Scheduler = () => {
   
     // Si un événement est créé
     if (requestType === 'eventCreated') {
-      axios.post('http://localhost:3000/schedule', formatEvent(addedRecords[0]))
+      axios.post('https://formen.onrender.com/schedule', formatEvent(addedRecords[0]))
         .then((response) => {
           console.log(response.data);
           setData([...data, response.data]); // Mettre à jour l'état local avec les nouvelles données
@@ -69,7 +69,7 @@ const Scheduler = () => {
   
     // Si un événement est modifié
     if (requestType === 'eventChanged') {
-      axios.put(`http://localhost:3000/schedule/${changedRecords[0].Id}`, formatEvent(changedRecords[0]))
+      axios.put(`https://formen.onrender.com/schedule/${changedRecords[0].Id}`, formatEvent(changedRecords[0]))
         .then((response) => {
           console.log(response.data);
           const updatedData = data.map(item => item.Id === response.data.Id ? response.data : item);
@@ -82,7 +82,7 @@ const Scheduler = () => {
   
     // Si un événement est supprimé
     if (requestType === 'eventRemoved') {
-      axios.delete(`http://localhost:3000/schedule/${deletedRecords[0].Id}`)
+      axios.delete(`https://formen.onrender.com/schedule/${deletedRecords[0].Id}`)
         .then((response) => {
           console.log(response.data);
           const updatedData = data.filter(item => item.Id !== deletedRecords[0].Id);
