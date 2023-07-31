@@ -23,7 +23,8 @@
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
-    "sequelize": "^6.32.1"
+    "sequelize": "^6.32.1",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

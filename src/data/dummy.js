@@ -58,6 +58,7 @@ const gridEmployeeProfile = (props) => (
     />
     <p>{props.Name}</p>
   </div>
+
 );
 
 const gridEmployeeCountry = (props) => (
@@ -67,7 +68,7 @@ const gridEmployeeCountry = (props) => (
   </div>
 );
 
-const customerGridImage = (props) => (
+export const customerGridImage = (props) => (
   <div className="image flex gap-4">
     <img
       className="rounded-full w-10 h-10"
@@ -81,45 +82,16 @@ const customerGridImage = (props) => (
   </div>
 );
 
-
-
-
-
-
-
-
-
-
-
 export const customersGrid = [
-  { type: 'checkbox', width: '50' },
-  { headerText: 'Nom',
-    width: '150',
-    template: customerGridImage,
-    textAlign: 'Center' },
-  { field: 'ProjectName',
-    headerText: 'Prénom',
-    width: '150',
-    textAlign: 'Center' },
+  { type: 'checkbox', width: '50', allowFiltering: false, allowSorting: false},
  
-  {
-    field: 'Télephone',
-    headerText: 'Télephone',
-    width: '100',
-    format: 'C2',
-    textAlign: 'Center' },
-  { field: 'Email',
-    headerText: 'Email',
-    width: '100',
-    format: 'yMd',
-    textAlign: 'Center' },
-
-  { field: 'Fidélité',
-    headerText: 'Fidélité',
-    width: '150',
-    textAlign: 'Center' },
-
+  { field: 'ProjectName', headerText: 'Prénom', width: '150', textAlign: 'Center' },
+  { field: 'Télephone', headerText: 'Télephone', width: '100', format: 'C2', textAlign: 'Center' },
+  { field: 'Email', headerText: 'Email', width: '100', format: 'yMd', textAlign: 'Center' },
+  { field: 'Fidélité', headerText: 'Fidélité', width: '150', textAlign: 'Center' },
 ];
+
+
 
 export const employeesGrid = [
   { headerText: 'Employee',
@@ -488,8 +460,8 @@ export const contextMenuItems = [
   'SortDescending',
   'Copy',
   'Edit',
+  'Add',
   'Delete',
-  'Supprimer',
   'Save',
   'Cancel',
   'PdfExport',
