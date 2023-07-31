@@ -104,31 +104,21 @@ export const employeesGrid = [
     textAlign: 'Center',
   },
   { field: 'Title',
-    headerText: 'Designation',
+    headerText: 'Téléphone',
     width: '170',
     textAlign: 'Center',
   },
-  { headerText: 'Country',
+  { headerText: 'Email',
     width: '120',
     textAlign: 'Center',
     template: gridEmployeeCountry },
 
   { field: 'HireDate',
-    headerText: 'Hire Date',
+    headerText: 'status',
     width: '135',
     format: 'yMd',
     textAlign: 'Center' },
-
-  { field: 'ReportsTo',
-    headerText: 'Reports To',
-    width: '120',
-    textAlign: 'Center' },
-  { field: 'EmployeeID',
-    headerText: 'Employee ID',
-    width: '125',
-    textAlign: 'Center' },
 ];
-
 export const links = [
   {
     title: 'Dashboard',
