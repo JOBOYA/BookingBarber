@@ -26,7 +26,7 @@ const Sidebar = () => {
         <>
           <div className="flex justify-between items-center">
             <Link to="/Employees" onClick={handleCloseSideBar} className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-            {/*eslint-disable-next-line react/jsx-indent*/}
+              {/* eslint-disable-next-line react/jsx-indent */}
             <img src={logo} alt="logo" className="w-10 h-10" /><span className="text-2xl">For men</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">

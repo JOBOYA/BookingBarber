@@ -107,7 +107,9 @@ const Scheduler = () => {
   };
 
   const onDragStart = (arg) => {
-    arg.navigation.enable = true;
+    const newArg = { ...arg };
+    newArg.navigation.enable = true;
+    return newArg;
   };
 
   return (
