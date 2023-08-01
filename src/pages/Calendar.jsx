@@ -44,6 +44,7 @@ const Scheduler = () => {
         if (isMounted) setData(serverData); // Ajoutez cette condition
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error);
       });
 
@@ -71,10 +72,12 @@ const Scheduler = () => {
     if (requestType === 'eventCreated') {
       axios.post('https://formen.onrender.com/schedule', formatEvent(addedRecords[0]))
         .then((response) => {
+          // eslint-disable-next-line no-console
           console.log(response.data);
           setData([...data, response.data]); // Mettre à jour l'état local avec les nouvelles données
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error);
         });
     }
@@ -83,11 +86,13 @@ const Scheduler = () => {
     if (requestType === 'eventChanged') {
       axios.put(`https://formen.onrender.com/schedule/${changedRecords[0].Id}`, formatEvent(changedRecords[0]))
         .then((response) => {
+          // eslint-disable-next-line no-console
           console.log(response.data);
           const updatedData = data.map((item) => (item.Id === response.data.Id ? response.data : item));
           setData(updatedData); // Mettre à jour l'état local avec les nouvelles données
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error);
         });
     }
@@ -96,11 +101,13 @@ const Scheduler = () => {
     if (requestType === 'eventRemoved') {
       axios.delete(`https://formen.onrender.com/schedule/${deletedRecords[0].Id}`)
         .then((response) => {
+          // eslint-disable-next-line no-console
           console.log(response.data);
           const updatedData = data.filter((item) => item.Id !== deletedRecords[0].Id);
           setData(updatedData); // Mettre à jour l'état local avec les nouvelles données
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error);
         });
     }

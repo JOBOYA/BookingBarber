@@ -49,6 +49,7 @@ const Customers = () => {
           setCustomersData((prevCustomersData) => prevCustomersData.map((item) => (item.id === response.data.id ? response.data : item)));
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error);
         })
         .finally(() => {
@@ -65,6 +66,7 @@ const Customers = () => {
           setCustomersData(updatedData);
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error);
         })
         .finally(() => {
@@ -84,6 +86,7 @@ const Customers = () => {
           setCustomersData((prevCustomersData) => [...prevCustomersData, response.data]);
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error);
         })
         .finally(() => {
@@ -100,6 +103,7 @@ const Customers = () => {
         setCustomersData(response.data);
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error);
       })
       .finally(() => {

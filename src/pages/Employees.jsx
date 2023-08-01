@@ -27,6 +27,7 @@ const Employees = () => {
           setEmployeesData((prevEmployeesData) => prevEmployeesData.map((item) => (item.id === response.data.id ? response.data : item)));
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error);
         })
         .finally(() => {
@@ -42,6 +43,7 @@ const Employees = () => {
           setEmployeesData(updatedData);
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error);
         })
         .finally(() => {
@@ -60,6 +62,7 @@ const Employees = () => {
           setEmployeesData((prevEmployeesData) => [...prevEmployeesData, response.data]);
         })
         .catch((error) => {
+          // eslint-disable-next-line no-console
           console.log(error);
         })
         .finally(() => {
@@ -75,6 +78,7 @@ const Employees = () => {
         setEmployeesData(response.data);
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error);
       })
       .finally(() => {
