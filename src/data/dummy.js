@@ -1,15 +1,12 @@
 import React from 'react';
 import { AiOutlineCalendar } from 'react-icons/ai';
 import { FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
-import { BsKanban, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
+import { BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
 import { IoMdContacts } from 'react-icons/io';
 import { RiContactsLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
-
-
 import { GrLocation } from 'react-icons/gr';
-
 
 export const gridOrderImage = (props) => (
   <div>
@@ -30,7 +27,6 @@ export const gridOrderStatus = (props) => (
     {props.Status}
   </button>
 );
-
 
 const gridEmployeeProfile = (props) => (
   <div className="flex items-center gap-2">
@@ -66,15 +62,13 @@ export const customerGridImage = (props) => (
 );
 
 export const customersGrid = [
-  { type: 'checkbox', width: '50', allowFiltering: false, allowSorting: false},
- 
+  { type: 'checkbox', width: '50', allowFiltering: false, allowSorting: false },
+
   { field: 'ProjectName', headerText: 'Prénom', width: '150', textAlign: 'Center' },
   { field: 'Télephone', headerText: 'Télephone', width: '100', format: 'C2', textAlign: 'Center' },
   { field: 'Email', headerText: 'Email', width: '100', format: 'yMd', textAlign: 'Center' },
   { field: 'Fidélité', headerText: 'Fidélité', width: '150', textAlign: 'Center' },
 ];
-
-
 
 export const employeesGrid = [
   { headerText: 'Employee',
@@ -127,14 +121,9 @@ export const links = [
         name: 'RDV',
         icon: <AiOutlineCalendar />,
       },
-      
-     
     ],
   },
 ];
-
-
-
 
 export const earningData = [
   {
@@ -176,8 +165,6 @@ export const earningData = [
   },
 ];
 
-
-
 export const weeklyStats = [
   {
     icon: <FiShoppingCart />,
@@ -205,8 +192,6 @@ export const weeklyStats = [
   },
 ];
 
-
-
 export const medicalproBranding = {
   data: [
     {
@@ -232,7 +217,7 @@ export const medicalproBranding = {
       color: '#FB9678',
     },
   ],
-  
+
 };
 
 export const themeColors = [
@@ -346,8 +331,7 @@ export const customersData = [
     Weeks: '',
     Budget: '',
     Location: '',
-  }
-
+  },
 ];
 
 export const employeesData = [
@@ -358,7 +342,6 @@ export const employeesData = [
     HireDate: '01/02/2021',
     Country: 'USA',
     ReportsTo: 'Carson',
-    
   },
 
 ];
@@ -373,7 +356,7 @@ export const ordersData = [
     Location: 'USA',
     Status: 'pending',
     StatusBg: '#FB9678',
-  }
+  },
 ];
 
 export const scheduleData = [
@@ -385,7 +368,6 @@ export const scheduleData = [
     EndTime: '',
     CategoryColor: '#1aaa55',
   },
-  
 ];
 
 export const lineChartData = [
@@ -419,10 +401,6 @@ export const lineChartData = [
   ],
 ];
 
-
-
-
-
 export const contextMenuItems = [
   'AutoFit',
   'AutoFitAll',
@@ -442,10 +420,6 @@ export const contextMenuItems = [
   'LastPage',
   'NextPage',
 ];
-
-
-
-
 
 export const kanbanData = [
   {

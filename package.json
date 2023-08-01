@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@syncfusion/ej2": "^19.4.48",
+    "@syncfusion/ej2-base": "^22.2.5",
     "@syncfusion/ej2-react-calendars": "^19.4.48",
     "@syncfusion/ej2-react-charts": "^19.4.50",
     "@syncfusion/ej2-react-dropdowns": "^19.4.52",
@@ -33,12 +34,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  /*"eslintConfig": {
+  "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
-  },*/
+  },
   "browserslist": {
     "production": [
       ">0.2%",

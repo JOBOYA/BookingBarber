@@ -1,32 +1,52 @@
 import React, { useEffect, useState } from 'react';
-import { GridComponent, ColumnsDirective, ColumnDirective, Page, Selection, Inject, Edit, Toolbar, Sort, Filter } from '@syncfusion/ej2-react-grids';
-import { Header } from '../components';
+import {
+  GridComponent,
+  ColumnsDirective,
+  ColumnDirective,
+  Page,
+  Selection,
+  Inject,
+  Edit,
+  Toolbar,
+  Sort,
+  Filter,
+} from '@syncfusion/ej2-react-grids';
 import axios from 'axios';
+import { Header } from '../components';
 
 const Customers = () => {
   const [customersData, setCustomersData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const selectionSettings = { type: 'Multiple', mode: 'Row', checkboxOnly: true, persistSelection: true };
+  const selectionSettings = {
+    type: 'Multiple',
+    mode: 'Row',
+    checkboxOnly: true,
+    persistSelection: true,
+  };
   const toolbarOptions = ['Add', 'Delete', 'Search'];
-  const editingSettings = { allowDeleting: true, allowEditing: true, allowAdding: true, newRowPosition: 'Top' };
+  const editingSettings = {
+    allowDeleting: true,
+    allowEditing: true,
+    allowAdding: true,
+    newRowPosition: 'Top',
+  };
 
-  const formatData = (data) => {
-    return {
-      id: data.id,
-      nom: data.nom,
-      prenom: data.prenom,
-      telephone: data.telephone,
-      email: data.email,
-      fidelite: data.fidelite,
-    }
-  }
+  const formatData = (data) => ({
+    id: data.id,
+    nom: data.nom,
+    prenom: data.prenom,
+    telephone: data.telephone,
+    email: data.email,
+    fidelite: data.fidelite,
+  });
 
   const actionComplete = (args) => {
     if (args.requestType === 'save' && args.action === 'edit') {
       setIsLoading(true);
-      axios.put(`https://formen.onrender.com/customer/${args.data.id}`, formatData(args.data))
+      axios
+        .put(`https://formen.onrender.com/customer/${args.data.id}`, formatData(args.data))
         .then((response) => {
-          setCustomersData(prevCustomersData => prevCustomersData.map(item => item.id === response.data.id ? response.data : item));
+          setCustomersData((prevCustomersData) => prevCustomersData.map((item) => (item.id === response.data.id ? response.data : item)));
         })
         .catch((error) => {
           console.log(error);
@@ -38,9 +58,10 @@ const Customers = () => {
 
     if (args.requestType === 'delete') {
       setIsLoading(true);
-      axios.delete(`https://formen.onrender.com/customer/${args.data[0].id}`)
-        .then((response) => {
-          const updatedData = customersData.filter(item => item.id !== args.data[0].id);
+      axios
+        .delete(`https://formen.onrender.com/customer/${args.data[0].id}`)
+        .then(() => {
+          const updatedData = customersData.filter((item) => item.id !== args.data[0].id);
           setCustomersData(updatedData);
         })
         .catch((error) => {
@@ -50,15 +71,17 @@ const Customers = () => {
           setIsLoading(false);
         });
     }
-  }
+  };
 
   const actionBegin = (args) => {
-    if (args.requestType === 'save' && args.action === 'add') {
-      args.cancel = true;
+    const newArgs = { ...args };
+    if (newArgs.requestType === 'save' && newArgs.action === 'add') {
+      newArgs.cancel = true;
       setIsLoading(true);
-      axios.post('https://formen.onrender.com/customer', formatData(args.data))
+      axios
+        .post('https://formen.onrender.com/customer', formatData(args.data))
         .then((response) => {
-          setCustomersData(prevCustomersData => [...prevCustomersData, response.data]);
+          setCustomersData((prevCustomersData) => [...prevCustomersData, response.data]);
         })
         .catch((error) => {
           console.log(error);
@@ -67,11 +90,12 @@ const Customers = () => {
           setIsLoading(false);
         });
     }
-  }
+  };
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get('https://formen.onrender.com/customer')
+    axios
+      .get('https://formen.onrender.com/customer')
       .then((response) => {
         setCustomersData(response.data);
       })
@@ -98,13 +122,13 @@ const Customers = () => {
           toolbar={toolbarOptions}
           editSettings={editingSettings}
           allowSorting
-          allowFiltering={true}
+          allowFiltering
           actionComplete={actionComplete}
           actionBegin={actionBegin}
         >
           <ColumnsDirective>
             <ColumnDirective type="checkbox" width="50" allowEditing={false} />
-            <ColumnDirective field="id" headerText="ID" width="100" isPrimaryKey={true} />
+            <ColumnDirective field="id" headerText="ID" width="100" isPrimaryKey />
             <ColumnDirective field="nom" headerText="Nom" width="100" />
             <ColumnDirective field="prenom" headerText="Prénom" width="100" />
             <ColumnDirective field="telephone" headerText="Téléphone" width="100" />
