@@ -4,7 +4,9 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Calendar, Employees, Customers } from './pages';
+import { Calendar, Employees, Customers, SignIn } from './pages';
+
+
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
@@ -70,6 +72,8 @@ const App = () => {
 
                 {/* apps  */}
                 <Route path="/RDV" element={<Calendar />} />
+                <Route path="/Connexion" element={<SignIn />} />
+
 
               </Routes>
             </div>

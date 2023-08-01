@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { FaSignOutAlt } from 'react-icons/fa';
 import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import logo from '../data/hair-cutting.png';
@@ -10,11 +10,19 @@ import { useStateContext } from '../contexts/ContextProvider';
 
 const Sidebar = () => {
   const { currentColor, activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const navigate = useNavigate();
 
   const handleCloseSideBar = () => {
     if (activeMenu !== undefined && screenSize <= 900) {
       setActiveMenu(false);
     }
+  };
+
+  const handleLogout = () => {
+    // Supprime le token de l'utilisateur
+
+    // Redirige vers la page de connexion
+    navigate('/Connexion');
   };
 
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';
@@ -26,8 +34,7 @@ const Sidebar = () => {
         <>
           <div className="flex justify-between items-center">
             <Link to="/Employees" onClick={handleCloseSideBar} className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
-              {/* eslint-disable-next-line react/jsx-indent */}
-            <img src={logo} alt="logo" className="w-10 h-10" /><span className="text-2xl">For men</span>
+              <img src={logo} alt="logo" className="w-10 h-10" /><span className="text-2xl">For men</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
               <button
@@ -62,6 +69,16 @@ const Sidebar = () => {
                 ))}
               </div>
             ))}
+            <div className="mt-10">
+              <Link
+                to="/Connexion"
+                onClick={handleLogout}
+                className={normalLink}
+              >
+                <FaSignOutAlt />
+                <span className="capitalize ">Déconnexion</span>
+              </Link>
+            </div>
           </div>
         </>
       )}
