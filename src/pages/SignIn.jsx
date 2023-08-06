@@ -1,55 +1,54 @@
+// SignIn.jsx
 import React, { useState } from 'react';
-import { TextBoxComponent } from '@syncfusion/ej2-react-inputs/textbox';
-import './SignIn.css';
+import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+import './SignIn.css';
+
 const SignIn = () => {
+  const navigate = useNavigate();
   const [usernameValue, setUsernameValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
 
-  // Handle username input change
   const handleUsernameInputChange = (event) => {
-    setUsernameValue(event.target.value);
-    console.log('Username:', event.target.value);
+    setUsernameValue(event.value);
+    console.log('Username:', event.value);
   };
-  
+
   const handlePasswordInputChange = (event) => {
-    setPasswordValue(event.target.value);
-    console.log('Password:', event.target.value);
+    setPasswordValue(event.value);
+    console.log('Password:', event.value);
   };
-  
 
-  // Handle sign in button click
-  // Handle sign in button click
-// Handle sign in button click
-const handleSignIn = async () => {
-  console.log('Signing in with:', usernameValue, passwordValue);
-  try {
-    const response = await axios.post('http://localhost:3000/login', {
-      username: usernameValue,
-      password: passwordValue,
-    }, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      withCredentials: true,
-    });
-    
-    if (response.status === 200) {
-      // Store the access token somewhere (e.g. localStorage)
-      localStorage.setItem('accessToken', response.data.accessToken);
-      localStorage.setItem('refreshToken', response.data.refreshToken);
-      // Do something after successful login (e.g. redirect to a different page)
-    } else {
-      // Handle error (e.g. display error message)
-      console.error(response.data.message);
+  const handleSignIn = async () => {
+    if (!usernameValue || !passwordValue) {
+      console.log('Both username and password must be filled out.');
+      return;
     }
-  } catch (error) {
-    console.error(error);
-  }
-};
 
+    try {
+      const response = await axios.post('https://formen.onrender.com/login', {
+        username: usernameValue,
+        password: passwordValue,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
+      });
+      console.log('Response:', response);
 
+      if (response.status === 200) {
+        console.log('Login successful');
+        navigate('/RDV');
+      } else {
+        console.error(response.data.message);
+      }
+    } catch (error) {
+      console.error('An error occurred during login:', error);
+    }
+  };
   return (
     <div className="modal">
       <div className="signin-container">

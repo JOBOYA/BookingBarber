@@ -4,8 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Calendar, Employees, Customers, SignIn } from './pages';
-
+import { Calendar, Employees, Customers, SignIn } from './pages'; // Ajoutez l'importation de Logout
 
 import './App.css';
 
@@ -40,7 +39,6 @@ const App = () => {
               >
                 <FiSettings />
               </button>
-
             </TooltipComponent>
           </div>
           {activeMenu ? (
@@ -67,13 +65,13 @@ const App = () => {
 
               <Routes>
                 {/* dashboard  */}{/* pages  */}
+                <Route path="/" element={<SignIn />} />
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/clients" element={<Customers />} />
 
                 {/* apps  */}
                 <Route path="/RDV" element={<Calendar />} />
                 <Route path="/Connexion" element={<SignIn />} />
-
 
               </Routes>
             </div>

@@ -368,6 +368,7 @@ export const scheduleData = [
     EndTime: '',
     CategoryColor: '#1aaa55',
   },
+
 ];
 
 export const lineChartData = [

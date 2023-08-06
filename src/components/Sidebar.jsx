@@ -19,9 +19,7 @@ const Sidebar = () => {
   };
 
   const handleLogout = () => {
-    // Supprime le token de l'utilisateur
-
-    // Redirige vers la page de connexion
+  // Redirige vers la page de connexion
     navigate('/Connexion');
   };
 
