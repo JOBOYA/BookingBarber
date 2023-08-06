@@ -13,11 +13,15 @@ const SignIn = () => {
 
   const handleUsernameInputChange = (event) => {
     setUsernameValue(event.value);
+    /* eslint-disable no-console */
+
     console.log('Username:', event.value);
   };
 
   const handlePasswordInputChange = (event) => {
     setPasswordValue(event.value);
+    /* eslint-disable no-console */
+
     console.log('Password:', event.value);
   };
 
@@ -37,6 +41,7 @@ const SignIn = () => {
         },
         withCredentials: true,
       });
+      /* eslint-disable no-console */
       console.log('Response:', response);
 
       if (response.status === 200) {
