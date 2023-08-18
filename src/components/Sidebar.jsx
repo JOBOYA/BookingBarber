@@ -4,12 +4,11 @@ import { FaSignOutAlt } from 'react-icons/fa';
 import { MdOutlineCancel } from 'react-icons/md';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import logo from '../data/hair-cutting.png';
-
 import { links } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 
 const Sidebar = () => {
-  const { currentColor, activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { setIsLoggedIn, currentColor, activeMenu, setActiveMenu, screenSize } = useStateContext();
   const navigate = useNavigate();
 
   const handleCloseSideBar = () => {
@@ -21,6 +20,7 @@ const Sidebar = () => {
   const handleLogout = () => {
   // Redirige vers la page de connexion
     navigate('/Connexion');
+    setIsLoggedIn(false);
   };
 
   const activeLink = 'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg  text-white  text-md m-2';

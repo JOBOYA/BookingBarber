@@ -4,14 +4,23 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
-import { Calendar, Employees, Customers, SignIn } from './pages'; // Ajoutez l'importation de Logout
+import { Calendar, Employees, Customers, SignIn } from './pages';
 
 import './App.css';
 
 import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
-  const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
+  const {
+    setCurrentColor,
+    setCurrentMode,
+    currentMode,
+    activeMenu,
+    currentColor,
+    themeSettings,
+    setThemeSettings,
+    isLoggedIn,
+  } = useStateContext();
 
   useEffect(() => {
     const currentThemeColor = localStorage.getItem('colorMode');
@@ -41,7 +50,8 @@ const App = () => {
               </button>
             </TooltipComponent>
           </div>
-          {activeMenu ? (
+
+          {isLoggedIn && activeMenu ? (
             <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
               <Sidebar />
             </div>
@@ -50,6 +60,7 @@ const App = () => {
               <Sidebar />
             </div>
           )}
+
           <div
             className={
               activeMenu
@@ -60,19 +71,16 @@ const App = () => {
             <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
               <Navbar />
             </div>
+
             <div>
               {themeSettings && (<ThemeSettings />)}
 
               <Routes>
-                {/* dashboard  */}{/* pages  */}
                 <Route path="/" element={<SignIn />} />
                 <Route path="/employees" element={<Employees />} />
                 <Route path="/clients" element={<Customers />} />
-
-                {/* apps  */}
                 <Route path="/RDV" element={<Calendar />} />
                 <Route path="/Connexion" element={<SignIn />} />
-
               </Routes>
             </div>
             <Footer />
