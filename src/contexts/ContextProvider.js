@@ -14,9 +14,9 @@ export const ContextProvider = ({ children }) => {
   const [currentColor, setCurrentColor] = useState('#03C9D7');
   const [currentMode, setCurrentMode] = useState('Light');
   const [themeSettings, setThemeSettings] = useState(false);
-  const [activeMenu, setActiveMenu] = useState(true);
+  const [activeMenu, setActiveMenu] = useState(false); // Initialisé à false
   const [isClicked, setIsClicked] = useState(initialState);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Nouvel état pour la connexion
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -29,7 +29,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    setActiveMenu(isLoggedIn);
+    setActiveMenu(isLoggedIn); // Mise à jour de l'état activeMenu en fonction de l'état isLoggedIn
   }, [isLoggedIn]);
 
   const handleClick = (clicked) => setIsClicked({ ...initialState, [clicked]: true });
@@ -38,8 +38,8 @@ export const ContextProvider = ({ children }) => {
     <StateContext.Provider
     // eslint-disable-next-line
       value={{
-        isLoggedIn, // nouvel état ajouté ici
-        setIsLoggedIn, // fonction pour modifier l'état ajoutée ici
+        isLoggedIn,
+        setIsLoggedIn,
         currentColor,
         currentMode,
         activeMenu,
