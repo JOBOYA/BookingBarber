@@ -105,7 +105,11 @@ export const links = [
   {
     links: [
       {
+<<<<<<< HEAD
         name: 'employes',
+=======
+        name: 'Employés',
+>>>>>>> a94a643f39e2fb63e9884893c4e8315c2d2aeccf
         icon: <IoMdContacts />,
       },
       {
