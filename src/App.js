@@ -19,7 +19,6 @@ const App = () => {
     currentColor,
     themeSettings,
     setThemeSettings,
-    isLoggedIn,
   } = useStateContext();
 
   useEffect(() => {
