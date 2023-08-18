@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import setIsLoggedIn from '../contexts/ContextProvider';
+import { useStateContext } from '../contexts/ContextProvider';
 
 import './SignIn.css';
 
@@ -11,6 +11,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [usernameValue, setUsernameValue] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
+  const { setIsLoggedIn } = useStateContext();
 
   const handleUsernameInputChange = (event) => {
     setUsernameValue(event.value);
