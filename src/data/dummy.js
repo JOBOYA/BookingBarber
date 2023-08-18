@@ -105,7 +105,7 @@ export const links = [
   {
     links: [
       {
-        name: 'employees',
+        name: 'employes',
         icon: <IoMdContacts />,
       },
       {
