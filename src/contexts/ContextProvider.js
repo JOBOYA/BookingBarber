@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const StateContext = createContext();
 
@@ -27,6 +27,10 @@ export const ContextProvider = ({ children }) => {
     setCurrentColor(color);
     localStorage.setItem('colorMode', color);
   };
+
+  useEffect(() => {
+    setActiveMenu(isLoggedIn);
+  }, [isLoggedIn]);
 
   const handleClick = (clicked) => setIsClicked({ ...initialState, [clicked]: true });
 

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import setIsLoggedIn from '../contexts/ContextProvider';
 
 import './SignIn.css';
 
@@ -46,6 +47,7 @@ const SignIn = () => {
 
       if (response.status === 200) {
         console.log('Login successful');
+        setIsLoggedIn(true);
         navigate('/RDV');
       } else {
         console.error(response.data.message);

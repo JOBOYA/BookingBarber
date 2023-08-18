@@ -51,15 +51,9 @@ const App = () => {
             </TooltipComponent>
           </div>
 
-          {isLoggedIn && activeMenu ? (
-            <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
-              <Sidebar />
-            </div>
-          ) : (
-            <div className="w-0 dark:bg-secondary-dark-bg">
-              <Sidebar />
-            </div>
-          )}
+          <div className="fixed md:static">
+            <Sidebar />
+          </div>
 
           <div
             className={
